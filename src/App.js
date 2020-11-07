@@ -24,14 +24,6 @@ const App = () => {
         return current && current < moment().endOf('day');
     }
 
-    const disabledDateTime = () => {
-        return {
-            disabledHours: () => range(0, 24).splice(4, 20),
-            disabledMinutes: () => range(30, 60),
-            disabledSeconds: () => [55, 56],
-        };
-    }
-
     const handleSubmit = async () => {
         const values = await form.validateFields()
         const body = {
@@ -90,7 +82,6 @@ const App = () => {
                         placeholder=''
                         format="YYYY-MM-DD HH:mm:ss"
                         disabledDate={disabledDate}
-                        disabledTime={disabledDateTime}
                         showTime={{defaultValue: moment('00:00:00', 'HH:mm:ss')}}
                     />
                 </Form.Item>
